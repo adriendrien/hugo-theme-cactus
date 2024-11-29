@@ -10,11 +10,10 @@ min_version = "0.55"
 
 # If the theme has a single author
 [author]
-    name = "Zeran Wu"
-    homepage = "https://github.com/monkeyWzr"
+    author = "Adrien TRÉMOT"
+    homepage = "https://github.com/adriendrien"
 
 # If porting an existing theme
 [original]
-    author = "Pieter Robberechts"
-    homepage = "https://github.com/probberechts"
-    repo = "https://github.com/probberechts/hexo-theme-cactus"
+    name = "Zeran Wu"
+    homepage = "https://github.com/monkeyWzr"
