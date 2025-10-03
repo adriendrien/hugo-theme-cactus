@@ -1,7 +1,13 @@
 {{ define "main" }}
   <section id="about">
   {{ if isset .Site.Params "description" }}
+
+  {{ $image := resources.Get "images/campfire2.png" }}
+  {{ $image := resources.Get "images/campfire1.gif" }}
+  {{ $image := $image.Fit "177x177" }}
+    <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" style="float:right">
     {{ .Site.Params.description | $.Page.RenderString }}
+
   {{ end }}
   {{ if isset .Site.Params "social" }}
       <p>Find me on
@@ -35,8 +41,19 @@
       </p>
   {{ end }}
   {{ partial "optional-about.html" . }}
+
+
+
+
+
   </section>
 
+  {{ $showWritingList := false }}
+  {{ if (isset .Site.Params "showWritingList") }}
+    {{ $showWritingList = .Site.Params.showWritingList }}
+  {{ end }}
+
+  {{ if $showWritingList }}
   <section id="writing">
     <span class="h1"><a href="{{ .Site.Params.mainSection | absURL }}">{{ .Site.Params.mainSectionTitle | default "Writings" }}</a></span>
     {{ if (and (and (isset .Site.Params "tagsoverview") (eq .Site.Params.tagsOverview true)) (gt (len .Site.Taxonomies.tags) 0)) }}
@@ -85,6 +102,7 @@
     </ul>
     {{ end }}
   </section>
+  {{ end }}
 
   {{ $showProjectsList := false }}
   {{ if (isset .Site.Params "showprojectslist") }}
